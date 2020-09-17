@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="Vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <p>
+                <!-- {{ sayHello() }} - <a href="{{ link }}">Google</a> Cannot use double curly braces for html attributes  -->
+                {{ sayHello() }} - <a v-bind:href="link">Google</a> <!-- This binds data in vue dynamically.  -->
+            </p>
+    </div>
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+                  title: 'Hello World!',
+                  link: 'http://google.com'
+            },
+            methods: {
+                sayHello: function () {
+                    return this.title; 
+                }
+            }
+    });
+    </script>
+</body>
+</html>
+
+<!-- A directive is an instruction you place in your code. v-bind is an example of a directive. -->

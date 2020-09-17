@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="Vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <button v-on:click="increase"> <!-- v-on is a number directive similar to v-bind  that allows to bind something in our template to pass data to it but v-on does the opposite where we listen to someting to receive something in our template. v-on can accept any DOM attribute such as click, mouse enter, mouse leave-->
+                Click me
+            </button>
+            <p>
+                {{ counter }}
+            </p>
+    </div>
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+  	            counter: 0
+            },
+            methods: {
+                increase: function() { //this function accesses the counter using this.counter and using ++ to increase the counters value by 1
+                    this.counter++;
+                }
+            }
+    });
+    </script>
+</body>
+</html>
