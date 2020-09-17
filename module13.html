@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <button v-on:click="increase(2, $event)"> 
+                Click me +
+            </button>
+            <button v-on:click="decrease(2)"> 
+                Click me -
+            </button>
+            <p>
+                {{ counter }}
+            </p>
+            <p v-on:mousemove="updateCoordinates">
+                Coordinates: {{ x }} / {{ y }}
+                 - <span v-on:mousemove.stop="">DEAD SPOT</span> 
+            </p>
+            <input type="text" v-on:keyup.enter="alertMe"> <!-- we can use what is called a key modifier that works the same as an event modifier. Instead of listening for an event, it listens for a key. 
+                                                            Without this modifier, every character input will cause an alert. In this case, the "enter" key will be listened to-->
+    </div>
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+                  counter: 0,
+                  x: 0,
+                  y: 0
+            },
+            methods: {
+                increase: function(step, event) { 
+                    this.counter += step;
+                },
+                decrease: function(step) {
+                    this.counter -= step;
+                },
+                updateCoordinates: function(event) {
+                    this.x = event.clientX;
+                    this.y = event.clientY;
+                },
+                alertMe: function() {
+                    alert('Alert!')
+                }
+            }
+    });
+    </script>
+</body>
+</html>
