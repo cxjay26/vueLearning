@@ -1,0 +1,4 @@
+vscode://vscode.github-authentication/did-authenticate?windowId=1&code=30f67795f23c5ebd7fa7&state=444a9ae2-5950-4e64-aaff-a183bc72c54a
+
+
+vscode token
