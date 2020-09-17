@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
-    <script src="Vue.js"></script>
+    <script src="vue.js"></script>
 </head>
 <body>
     <div id="app">
@@ -17,7 +17,6 @@
             <hr>
             <!-- <p>{{ finishedLink }}</p> //this is the default behavior where this property is parsed as a string thus escapes html elements. Rendering this piece of code as text. -->
             <p v-html="finishedLink"></p> <!-- This directive allows you to output RAW html through vue.js -->
-        },
     </div>
     <script>
         new Vue({
