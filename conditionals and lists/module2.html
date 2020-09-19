@@ -8,8 +8,12 @@
 </head>
 <body>
     <div id="app">
-        <p v-if="show">You can see me! <span>Hello!</span></p> <!--v-if will work with whatever element it's binded to plus all nested elements-->
+        <p v-if="show">You can see me! <span>Hello!</span></p>
         <p v-else>Now you see me!</p>
+        <template v-if="show"> <!--use the template html5 tag to use v-if for multiple non-nested elements wihtout having the <div> properties.-->
+            <h1> Heading </h1>
+            <p>inside a template</p>
+        </template>
         <p>Do you also see me?</p>
         <button @click="show = !show">switch</button>
     <script>
@@ -23,6 +27,5 @@
     <style>
         
     </style>
-    <!-- If vue.js version 2.1 or higher is used, you now have access to v-else-if directive. https://vuejs.org/v2/guide/conditional.html#v-else-if. -->
 </body>
 </html>
