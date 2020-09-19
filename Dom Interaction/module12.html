@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
-    <script src="vue.js"></script>
+    <script src="..\vue.js"></script>
 </head>
 <body>
     <div id="app">
-            <button v-on:click="increase(2, $event)"> <!--  $event allows us to fetch this event always. vue stores this as a variable that is always able to be accessed and is considered a protected variable/event. -->
+            <button v-on:click="increase(2, $event)">
                 Click me +
             </button>
             <button v-on:click="decrease(2)"> 
@@ -19,6 +19,8 @@
             </p>
             <p v-on:mousemove="updateCoordinates">
                 Coordinates: {{ x }} / {{ y }}
+                <!-- - <span v-on:mousemove="dummy">DEAD SPOT</span> we can do the exact same stopPropagation even easier without the need of a method-->
+                 - <span v-on:mousemove.stop="">DEAD SPOT</span> <!-- vuejs allows for a modifier to the directive that stops propagation just like the stopPropagation used before. Modifiers can also be chained. -->
             </p>
     </div>
     <script>
@@ -40,6 +42,9 @@
                     this.x = event.clientX;
                     this.y = event.clientY;
                 }
+                // dummy: function(event){
+                //     event.stopPropagation(); 
+                // }
             }
     });
     </script>

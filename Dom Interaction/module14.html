@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="..\vue.js"></script>
+</head>
+<body>
+    <div id="app">
+            <button v-on:click="counter++"> 
+                Click me +
+            </button>
+            <button v-on:click="counter--"> 
+                Click me -
+            </button>
+            <button v-on:click="secondCounter++"> 
+                Click me + Second Counter
+            </button>
+            <button v-on:click="secondCounter--"> 
+                Click me - Second Counter
+            </button>
+            <p>
+                Counter: {{ counter }} | {{ secondCounter }}
+            </p>
+            <p>
+                 Result: {{ result() }} | {{ output }} 
+            </p>
+    </div>
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+                  counter: 0,
+                  secondCounter: 0
+            },
+            computed: {
+                output: function() {
+                    console.log('Computed');
+                    return this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                },
+            },
+            watch: {
+                counter: function(value) {
+                    var vm = this; //this stores the vue instance due to a callback closure
+                    setTimeout(function() {
+                        vm.counter = 0;
+                    }, 2000);
+                }
+            },
+            methods: {
+                result() {
+                    console.log('Method');
+                    return this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                }
+                // increase: function() { 
+                //     this.counter++;
+                //     this.result = this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                // },                                                                               these two functions can be used also by using the above method and computed property to avoid having disorganized code throught the vue instance
+                // decrease: function() {
+                //     this.counter--;
+                //     this.result = this.counter > 5 ? 'Greater 5' : 'Smaller 5'
+                // }
+            }
+    });
+    </script>
+</body>
+</html>
+
+<!-- 
+    el: Connects to DOM
+    data: Store Data to be used
+    methods: Methods of this Vue Instance
+    computed: Dependent Properties
+    watch: Execute code upon data changes
+ -->

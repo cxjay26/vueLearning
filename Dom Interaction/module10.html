@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS</title>
-    <script src="vue.js"></script>
+    <script src="..\vue.js"></script>
 </head>
 <body>
     <div id="app">
-            <button v-on:click="increase(2, $event)"> 
+            <button v-on:click="increase(2, $event)"> <!--  $event allows us to fetch this event always. vue stores this as a variable that is always able to be accessed and is considered a protected variable/event. -->
                 Click me +
             </button>
             <button v-on:click="decrease(2)"> 
@@ -19,10 +19,7 @@
             </p>
             <p v-on:mousemove="updateCoordinates">
                 Coordinates: {{ x }} / {{ y }}
-                 - <span v-on:mousemove.stop="">DEAD SPOT</span> 
             </p>
-            <input type="text" v-on:keyup.enter="alertMe"> <!-- we can use what is called a key modifier that works the same as an event modifier. Instead of listening for an event, it listens for a key. 
-                                                            Without this modifier, every character input will cause an alert. In this case, the "enter" key will be listened to-->
     </div>
     <script>
         new Vue({
@@ -42,9 +39,6 @@
                 updateCoordinates: function(event) {
                     this.x = event.clientX;
                     this.y = event.clientY;
-                },
-                alertMe: function() {
-                    alert('Alert!')
                 }
             }
     });

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="tLight">
+            <div class="rLight" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
+            <div class="yLight" @click="attachYellow = !attachYellow" :class="{yellow: attachYellow}"></div>
+            <div class="gLight" @click="attachGreen = !attachGreen" :class="{green: attachGreen}"></div>
+        </div>
+        <!-- <div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
+        <div class="demo" :class="{red: attachRed}"></div>
+        <div class="demo"></div>
+        <div class="demo"></div> -->
+    </div>
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+               attachRed: false,
+               attachYellow: false,
+               attachGreen: false,  
+            }
+        });
+    </script>
+    <style>
+        .tLight {
+            background-color: black;
+            width: 70px;
+            height: 200px;
+            margin-left: 50px;
+            padding: 7px;
+            border-radius: 10px;
+        }
+
+        .rLight {
+            height: 50px;
+            margin: auto;
+            border-radius: 50%;
+            padding: 10px;
+            padding-bottom: 5px !important;
+            cursor: pointer;
+            width: 50px;
+            background-color: red;
+        }
+
+        .yLight {
+            height: 50px;
+            margin: auto;
+            border-radius: 50%;
+            padding: 10px;
+            padding-bottom: 5px !important;
+            cursor: pointer;
+            width: 50px;
+            background-color: yellow;
+        }
+
+        .gLight {
+            height: 50px;
+            margin: auto;
+            border-radius: 50%;
+            padding: 10px;
+            padding-bottom: 5px !important;
+            cursor: pointer;
+            width: 50px;
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+            box-shadow: #f8ffcc 0px 0px 50px 20px;
+        }
+
+        .yellow {
+            background-color: yellow;
+            box-shadow: #f8ffcc 0px 0px 50px 20px;
+        }
+
+        .green {
+            background-color: green;
+            box-shadow: #f8ffcc 0px 0px 50px 20px;
+        }
+    </style>
+</body>
+</html>
