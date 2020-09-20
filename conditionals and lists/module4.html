@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="..\vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="ingredient in ingredients">{{ ingredient }}</li> <!-- v-for is vues way of "for loop". Looping through data and properties. -->
+        </ul>
+    </div>
+    <script>
+        new Vue({
+	        el: '#app',
+            data: {
+                ingredients: ['meat', 'fruit', 'cookies'],
+                persons: [
+                    {name: 'Max', age: 27, color: 'red'},
+                    {name: 'Anna', age: 'unkown', color: 'blue'}
+                ]  
+            }
+        });
+    </script>
+    <style>
+        
+    </style>
+</body>
+</html>
