@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS</title>
+    <script src="..\vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 style="text-align: center">{{ title }}</h1>
+        <hr>
+        <img src="screenShot.png">
+    </div>
+
+    
+      
+    <script>
+
+        new Vue({ //constructor
+            el: '#app',
+            data: {
+              title: 'The VueJS instance'
+          }
+        });
+
+    </script>
+</body>
+</html>
+
+
+
+
+

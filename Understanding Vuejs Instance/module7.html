@@ -16,11 +16,15 @@
     <div id="app2">
       <h1 ref="heading">{{ title }}</h1>
       <button @click="onChange">Change something in Vue 1</button>
+      <hello></hello>
     </div>
 
     <div id="app3">
 
     </div>
+    <hello>
+    </hello>
+    <div class="hello"></div>
     
       
     <script>
@@ -28,6 +32,10 @@
             title: 'The VueJS Instance',
             showParagraph: false
         }
+
+        Vue.component ('hello', {
+          template: '<h1> Hello! </h1>'
+        });
 
         var vm1 = new Vue({
           data: data,
@@ -77,11 +85,12 @@
         });
 
         var vm3 = new Vue({
+          el: 'hello',
             template: '<h1>Hello!</h1>'
         });
 
-        vm3.$mount();
-        document.getElementById('app3').appendChild(vm3.$el);
+        // vm3.$mount();
+        // document.getElementById('app3').appendChild(vm3.$el);
         //vm3.$mount('#app3');
     </script>
 </body>
